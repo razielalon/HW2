@@ -44,10 +44,10 @@ def show_conversation(conversation):
 def send_msg(username, msg_content, msg_last_id, conversation_size, max_conversation_size, conversation):
     if enough_space(msg_content, conversation_size, max_conversation_size):
         msg_last_id += 1
-        conversation_size += len(msg_content)
+        conversation_size += len(msg_content)  # before the next if because the notes in question 10
         msg = [msg_last_id, username, msg_content, current_time_to_str()]
         conversation.append(msg)
-        if msg_content.endswith(".txt"):  # if it's a txt file, fix it with "file_fixing"
+        if msg_content.endswith(".txt"):  # if it's a txt file
             file_fixing(msg_content)
     return msg_last_id, conversation_size
 
